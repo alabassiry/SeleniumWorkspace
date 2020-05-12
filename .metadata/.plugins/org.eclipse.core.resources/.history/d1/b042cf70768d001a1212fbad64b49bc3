@@ -1,0 +1,63 @@
+package com.phptravels.webtesting;
+
+import org.testng.annotations.Test;
+import helper.GetProperties;
+import helper.LoadXLSX;
+import helper.RegisterPageFile;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+
+public class Testcase004 {
+	private WebDriver driver;
+	private LoadXLSX excel;
+	private RegisterPageFile rpf;
+	private GetProperties getproperty;
+
+	@DataProvider(name = "loginData")
+	private Object[][] dataprovider() {
+		Object[][] testData = excel.getTestData("Invalid_FirstName");
+		return testData;
+	}
+
+	@Test(dataProvider = "loginData")
+	public void testcase(String firstname, String lastname, String password, String email, String phone)
+			throws InterruptedException {
+		rpf = new RegisterPageFile(driver);
+		boolean check = false;
+		driver.get("https://www.phptravels.net/register");
+		rpf.sendKeysToLocator(firstname, rpf.firstNameLocator);
+		rpf.sendKeysToLocator(lastname, rpf.lastNameLocator);
+		rpf.sendKeysToLocator(password, rpf.passwordLocator);
+		rpf.sendKeysToLocator(password, rpf.confirmPasswordLocator);
+		rpf.sendKeysToLocator(email, rpf.emailLocator);
+		rpf.sendKeysToLocator(phone, rpf.phoneLocator);
+		rpf.clickSubmit();
+		check = rpf.errorMessageFor(firstname);
+		Assert.assertEquals(check, true);
+	}
+
+	@BeforeTest
+	public void setup() throws FileNotFoundException, IOException {
+		getproperty = new GetProperties();
+		getproperty.loadPropertiesFile("resources/test.properties");
+		excel = new LoadXLSX();
+		excel.loadXlsx();
+		System.setProperty("webdriver.chrome.driver", getproperty.getPropertyValue("webdriver.chrome.driver"));
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+	}
+
+	@AfterTest(alwaysRun = true)
+	public void cleanup() {
+		driver.quit();
+	}
+
+}

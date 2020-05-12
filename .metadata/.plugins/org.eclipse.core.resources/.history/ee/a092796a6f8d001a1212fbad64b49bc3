@@ -1,0 +1,44 @@
+package helper;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class RegisterPageFile {
+	private WebDriver driver;
+	public static By firstNameLocator = By.name("firstname");
+	public static By lastNameLocator = By.name("lastname");
+	public static By phoneLocator = By.name("phone");
+	public static By emailLocator = By.name("email");
+	public static By passwordLocator = By.name("password");
+	public static By confirmPasswordLocator = By.name("confirmpassword");
+	public static By signUpLocator = By.xpath("//button[@type='submit']");
+
+	public RegisterPageFile(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	protected WebElement findElement(By locator) {
+		return driver.findElement(locator);
+	}
+	
+	public void clickSubmit(){
+		findElement(signUpLocator).click();
+	}
+	
+	public void sendKeysToLocator(String value, By locator){
+		findElement(locator).sendKeys(value);
+	}
+	
+	public boolean isEmptyField(By locator){
+		boolean isEmptyField = false;
+		String message = findElement(locator).getAttribute("validationMessage");
+		if(message.equals("Please fill out this field.")){
+			isEmptyField = true;
+		}
+		else{
+			isEmptyField = false;
+		}
+		return isEmptyField;
+	}
+}

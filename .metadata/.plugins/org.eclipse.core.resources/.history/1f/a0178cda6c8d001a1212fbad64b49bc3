@@ -1,0 +1,48 @@
+package helper;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class RegisterPageFile {
+	private WebDriver driver;
+	private static By firstNameLocator = By.name("firstname");
+	private static By lastNameLocator = By.name("lastname");
+	private static By phoneLocator = By.name("phone");
+	private static By emailLocator = By.name("email");
+	private static By passwordLocator = By.name("password");
+	private static By confirmPasswordLocator = By.name("confirmpassword");
+	private static By signUpLocator = By.xpath("//button[@type='submit']");
+
+	public RegisterPageFile(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	private WebElement findElement(By locator) {
+		return driver.findElement(locator);
+	}
+	
+	protected void clickSubmit(){
+		findElement(signUpLocator).click();
+	}
+	
+	protected void typeFirstName(String firstname){
+		findElement(firstNameLocator).sendKeys(firstname);
+	}
+
+	protected void typeLastName(String lastname){
+		findElement(firstNameLocator).sendKeys(lastname);
+	}
+	protected void typePhone(String phone){
+		findElement(firstNameLocator).sendKeys(phone);
+	}
+	protected void typeEmail(String email){
+		findElement(firstNameLocator).sendKeys(email);
+	}
+	protected void typePassword(String pass){
+		findElement(firstNameLocator).sendKeys(pass);
+	}
+	protected void typeConfirmPassword(String confirm){
+		findElement(firstNameLocator).sendKeys(confirm);
+	}
+}

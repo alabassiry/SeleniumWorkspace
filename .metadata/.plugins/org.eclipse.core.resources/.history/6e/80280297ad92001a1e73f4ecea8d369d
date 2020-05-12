@@ -1,0 +1,42 @@
+package com.phptravels.webtesting;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+
+public class Testcase008 {
+
+	@Test
+	public void testingValidData() throws IOException, IllegalArgumentException{
+		URL url = new URL("https://www.phptravels.net/register");
+		HttpURLConnection httpcon = (HttpURLConnection) url.openConnection(); 
+		httpcon.addRequestProperty("User-Agent", "Mozilla/4.76"); 
+		InputStream in = httpcon.getInputStream();
+		String encoding = httpcon.getContentEncoding();
+		encoding = encoding == null ? "UTF-8" : encoding;
+		String body = IOUtils.toString(in, encoding);
+		FileUtils.writeStringToFile(new File("./HTTPResponses/Testcase008.xml"), body);
+	}
+
+	@BeforeTest
+	public void setup() throws FileNotFoundException, IOException {
+
+	}
+
+	@AfterMethod(alwaysRun = true)
+	public void cleanup(ITestResult testResult) throws IOException {
+	
+	}
+	
+}

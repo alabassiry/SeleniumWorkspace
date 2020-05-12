@@ -1,0 +1,46 @@
+package com.phptravels.webtesting;
+
+import org.testng.annotations.Test;
+import helper.GetProperties;
+import helper.LoadXLSX;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+
+public class Testcase002 {
+	private WebDriver driver;
+	private GetProperties getproperty;
+	
+	@Test()
+	public void testcase(){
+		driver.get("https://www.phptravels.net/register");
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		String message = driver.findElement(By.name("firstname")).getAttribute("validationMessage");
+		System.out.println(message);
+	}
+
+	@BeforeTest
+	public void setup() throws FileNotFoundException, IOException {
+		getproperty = new GetProperties();
+		getproperty.loadPropertiesFile("resources/test.properties");
+		System.setProperty("webdriver.chrome.driver", getproperty.getPropertyValue("webdriver.chrome.driver"));
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+	}
+
+	@AfterTest(alwaysRun=true)
+	public void cleanup() {
+		driver.quit();
+	}
+
+}

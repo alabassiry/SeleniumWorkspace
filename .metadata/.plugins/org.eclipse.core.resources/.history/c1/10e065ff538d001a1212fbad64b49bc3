@@ -1,0 +1,2 @@
+#This is the path of the chrome wehbdriver .. please change it to the location on your machine
+webdriver.chrome.driver=C:/Users/Marwan/Documents/Workspace/chromedriver.exe libs/chromewebdriver/chromedriver.exe

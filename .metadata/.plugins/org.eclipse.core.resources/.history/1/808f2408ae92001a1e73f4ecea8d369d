@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="1" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="17974" started-at="2020-05-04T19:20:24Z" finished-at="2020-05-04T19:20:42Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="17974" started-at="2020-05-04T19:20:24Z" finished-at="2020-05-04T19:20:42Z">
+      <class name="com.phptravels.webtesting.Testcase008">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.phptravels.webtesting.Testcase008@56cbfb61]" name="setup" is-config="true" duration-ms="856" started-at="2020-05-04T21:20:24Z" finished-at="2020-05-04T21:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="FAIL" signature="testingValidData(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.phptravels.webtesting.Testcase008@56cbfb61]" name="testingValidData" duration-ms="15662" started-at="2020-05-04T21:20:25Z" data-provider="loginData" finished-at="2020-05-04T21:20:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[John]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Doe]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Aa123456]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[john124@test.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[01234567891]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.io.IOException">
+            <message>
+              <![CDATA[Server returned HTTP response code: 403 for URL: https://www.phptravels.net/register]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.io.IOException: Server returned HTTP response code: 403 for URL: https://www.phptravels.net/register
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at com.phptravels.webtesting.Testcase008.testingValidData(Testcase008.java:61)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:822)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1130)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.io.IOException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testingValidData -->
+        <test-method status="PASS" signature="cleanup(org.testng.ITestResult)[pri:0, instance:com.phptravels.webtesting.Testcase008@56cbfb61]" name="cleanup" is-config="true" duration-ms="1387" started-at="2020-05-04T21:20:41Z" finished-at="2020-05-04T21:20:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testingValidData status=FAILURE method=Testcase008.testingValidData(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.phptravels.webtesting.Testcase008@56cbfb61] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanup -->
+      </class> <!-- com.phptravels.webtesting.Testcase008 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

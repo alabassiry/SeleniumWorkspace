@@ -1,0 +1,7 @@
+package helper;
+
+import java.util.Properties;
+
+public class GetProperties {
+	private Properties properties = new Properties();
+}

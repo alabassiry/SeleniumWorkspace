@@ -1,0 +1,9 @@
+package helper;
+
+import org.openqa.selenium.WebDriver;
+
+public class RegisterPageFile {
+	WebDriver driver;
+	
+	
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Testsuite">
+	<test name="PHPTRAVELS">
+		<classes>
+			<class name="com.phptravels.webtesting.Testcase001"></class>
+			<class name="com.phptravels.webtesting.Testcase002" />
+			<class name="com.phptravels.webtesting.Testcase003"></class>
+			<class name="com.phptravels.webtesting.Testcase004" />
+			<class name="com.phptravels.webtesting.Testcase005"></class>
+			<class name="com.phptravels.webtesting.Testcase006" />
+			<class name="com.phptravels.webtesting.Testcase007"></class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,16 @@
+package helper;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class LoadXLSX {
+	private String path;
+	private String sheetname;
+	
+	public void loadXlsx() throws FileNotFoundException, IOException{
+		GetProperties getproperties = new GetProperties();
+		getproperties.loadPropertiesFile("/resources/test.properties");
+		this.path = getproperties.getPropertyValue("invalidxlsx");
+		this.sheetname = getproperties.getPropertyValue("invalidxlsxsheet");
+	}
+}

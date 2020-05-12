@@ -1,0 +1,26 @@
+package helper;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class LoadXLSX {
+	private String path;
+	private String sheetname;
+	private XSSFWorkbook excelbook;
+	private XSSFSheet excelsheet;
+	private XSSFCell excelcell;
+	
+	public void loadXlsx() throws FileNotFoundException, IOException{
+		GetProperties getproperties = new GetProperties();
+		getproperties.loadPropertiesFile("/resources/test.properties");
+		this.path = getproperties.getPropertyValue("invalidxlsx");
+		this.sheetname = getproperties.getPropertyValue("invalidxlsxsheet");
+		
+		FileInputStream excelfile = new FileInputStream(path);
+	}
+}

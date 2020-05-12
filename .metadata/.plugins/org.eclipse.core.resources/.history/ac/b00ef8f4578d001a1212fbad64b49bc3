@@ -1,0 +1,6 @@
+#This is the path of the chrome wehbdriver .. please change it to the location on your machine
+webdriver.chrome.driver=libs/chromewebdriver/chromedriver.exe
+
+#This is the path of the invalid login credentials excel sheet
+invalidxlsx=resources/InvalidLogin.xlsx
+invalidxlsxsheet=sheet1

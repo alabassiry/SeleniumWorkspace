@@ -1,0 +1,3 @@
+#This is the path of the invalid login credentials excel sheet
+invalidxlsx=resources/InvalidLogin.xlsx
+invalidxlsxsheet=sheet1
